@@ -11,19 +11,27 @@ class Conversation():
         self.interactions = []
         self.articMapper = ArticulationMapper(articulationdata)
     
-    def interact(self, utterance: str):
+    def interact(self, utterance: str, returnPayload = False):
         self.utterances.append(utterance)
         response = self.engine.getIntent(utterance)
-        self.responses.append(response[0])
-        if response[1] > 0.3:
-            articulation = self.articMapper.get(response[0])
+        self.responses.append(response.get('intent'))
+        if response.get('probability') > 0.3:
+            articulation = self.articMapper.get(response.get('intent'))
             if articulation == None:
                 articulation = self.articMapper.get('no_articulation')
         else:
             articulation = self.articMapper.get('mishandled')
         Interaction = namedtuple('Interaction', ['utterance', 'response'])
         self.interactions.append(Interaction(utterance, articulation))
-        return articulation
+        if returnPayload == False:
+            return articulation
+        else:
+            return {
+                'articulation' : articulation,
+                'intent' : response.get('intent'),
+                'probability' : response.get('probability'),
+                'probability_matrix' : response.get('probability_matrix')
+            }
 
     def get(self):
         '''returns all the interactions for the conversation as a list'''

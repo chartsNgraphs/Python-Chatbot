@@ -58,7 +58,8 @@ class Chatbot(Frame):
     
     def respond(self, utterance, force=False):
         if force == False:
-            response = self.currentConversation.interact(utterance)
+            payload = self.currentConversation.interact(utterance, returnPayload=True)
+            response = payload.get('articulation')
         else:
             response = "Hi! Ask me anything:"
         botBubble = SquareBubble(self.scrollframe.frame, text=response, user = 'Bot', fill=Midnight.seaweed)

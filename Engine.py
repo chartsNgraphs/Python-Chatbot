@@ -43,8 +43,12 @@ class ConversationalEngine():
         vectored_transformed = vectorizer.transform([utterance])
         predictions_NB = self.Naive.predict(vectored_transformed)
         score = self.Naive.predict_proba(vectored_transformed)
-        probability_matrix = sorted(zip(self.labels, score[0]), key= lambda x: x[1], reverse=True)
-        return [predictions_NB[0], sorted(score[0], reverse=True)[0], probability_matrix]
+        probability_matrix = sorted(zip(self.Naive.classes_, score[0]), key= lambda x: x[1], reverse=True)
+        return {
+            'intent' : predictions_NB[0],
+            'probability' : sorted(score[0], reverse=True)[0],
+            'probability_matrix' : probability_matrix
+        }
 
     def _lemmatize(self, value, tagMap, ignoreStopWords, lemmatizer):
         outputList = []
