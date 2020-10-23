@@ -1,0 +1,40 @@
+intent_name,sample_utterance
+greeting,Hello
+greeting,Hi
+greeting,How are you
+greeting,good morning 
+greeting,hey there
+greeting,good afternoon
+greeting,hey you 
+new_project,start
+new_project,new project
+new_project,how to start
+new_project,start over
+new_project,new workflow 
+new_project,new 
+save,save now 
+save,how to save 
+save,save
+save,keep my work
+save,project saved
+save,did it save
+close,quit
+close,quit
+close,quit the program
+close,how do I close the app
+get_data,get some data
+get_data,connect to a data source
+get_data,pull in source
+get_data,database
+get_data,connect to my data
+get_data,fetch data
+get_data,fetch information 
+get_data,how do I fetch data
+welcome,###0001
+welcome,###0001
+settings,open settings
+settings,settings
+settings,options
+settings,settings and options
+settings,change a setting
+settings,I want to change a setting
