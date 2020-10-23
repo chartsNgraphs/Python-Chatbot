@@ -27,7 +27,7 @@ class Chatbot(Frame):
         self.entry.grid(row=3, column=1, padx=2, pady=2)
         self.btnSend = IconButton(self, image=None, fillcolor=Midnight.white, hovercolor=Midnight.staticLighter(Midnight.navy, percent=0.9), imagedata=self.sendimagedata)
         self.btnSend.grid(row=3, column=2)
-        self.engine = ConversationalEngine(app=self.app)
+        self.engine = ConversationalEngine(app=self.app, lemmatize_data=True)
         self.countBubbles = 1
         self.btnSend.bind('<Button-1>', self.sendEvent)
         self.start()

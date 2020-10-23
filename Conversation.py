@@ -15,7 +15,10 @@ class Conversation():
         self.utterances.append(utterance)
         response = self.engine.getIntent(utterance)
         self.responses.append(response[0])
-        articulation = self.articMapper.get(response[0])
+        if response[1] > 0.3:
+            articulation = self.articMapper.get(response[0])
+        else:
+            articulation = self.articMapper.get('mishandled')
         Interaction = namedtuple('Interaction', ['utterance', 'response'])
         self.interactions.append(Interaction(utterance, articulation))
         return articulation

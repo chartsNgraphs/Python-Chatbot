@@ -17,18 +17,18 @@ from nltk.stem import WordNetLemmatizer
 class ConversationalEngine():
     def __init__(self, app, lemmatize_data=True):
         df = pd.read_csv('training.csv')
-        self.trainingData = df['sample_utterance'].apply(str)
         self.labels = []
         for i in df['intent_name']:
             if i not in self.labels:
                 self.labels.append(i)
+        self.trainingData = df['sample_utterance'].apply(str)
         if lemmatize_data==True:
             tag_map = defaultdict(lambda : wn.NOUN)
             tag_map['J'] = wn.ADJ
             tag_map['V'] = wn.VERB
             tag_map['R'] = wn.ADV
             lemmatizer = WordNetLemmatizer()
-            df['sample_utterance'] = df['sample_utterance'].apply(self._lemmatize, tagMap=tag_map, ignoreStopWords=True, lemmatizer=lemmatizer)
+            df['sample_utterance'] = df['sample_utterance'].apply(self._lemmatize, tagMap=tag_map, ignoreStopWords=False, lemmatizer=lemmatizer)
         df['sample_utterance'] = [word_tokenize(entry) for entry in df['sample_utterance']]
         # vectorize the data
         Tfidf_vectored = TfidfVectorizer(max_features=5000)
