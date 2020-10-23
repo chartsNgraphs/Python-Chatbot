@@ -15,8 +15,8 @@ from collections import defaultdict
 from nltk.stem import WordNetLemmatizer
 
 class ConversationalEngine():
-    def __init__(self, app, lemmatize_data=True):
-        df = pd.read_csv('training.csv')
+    def __init__(self, app, lemmatize_data=True, filepath=None):
+        df = pd.read_csv(filepath)
         self.labels = []
         for i in df['intent_name']:
             if i not in self.labels:

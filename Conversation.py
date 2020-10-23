@@ -2,14 +2,14 @@ from Engine import ConversationalEngine
 from ArticulationMapper import ArticulationMapper
 from collections import namedtuple
 class Conversation():
-    def __init__(self, app, engine: ConversationalEngine):
+    def __init__(self, app, engine: ConversationalEngine, trainingdata: str, articulationdata: str):
         super().__init__()
         self.app=app
         self.engine = engine
         self.utterances = []
         self.responses = []
         self.interactions = []
-        self.articMapper = ArticulationMapper()
+        self.articMapper = ArticulationMapper(articulationdata)
     
     def interact(self, utterance: str):
         self.utterances.append(utterance)
@@ -17,6 +17,8 @@ class Conversation():
         self.responses.append(response[0])
         if response[1] > 0.3:
             articulation = self.articMapper.get(response[0])
+            if articulation == None:
+                articulation = self.articMapper.get('no_articulation')
         else:
             articulation = self.articMapper.get('mishandled')
         Interaction = namedtuple('Interaction', ['utterance', 'response'])

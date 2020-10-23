@@ -1,6 +1,7 @@
 intent_name,articulation
 mishandled,Sorry I didn't understand your question. please try asking again.
 greeting,Nice to meet you!
+no_articulation,Sorry I have not been trainined to help with that yet.
 new_project,You can start a new project from the Start Page or from the app navigator.
 save,Do you want to save your project now?
 welcome,Ask you question below.
