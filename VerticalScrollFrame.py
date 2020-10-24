@@ -26,28 +26,20 @@ class vertScrollFrame(Frame):
         self.vscrollbar = AutoScrollbar(master)
         self.vscrollbar.grid(row=0, column=1, sticky=N+S+E)
         self.config(bg=self.fillcolor)
-
-
         self.canvas = Canvas(master, yscrollcommand=self.vscrollbar.set)
         self.canvas.grid(row=0, column=0, sticky='nsew')
         self.canvas.config(bd=0, highlightthickness=0, bg=self.fillcolor)
-
         self.vscrollbar.config(command=self.canvas.yview)
-        
         # make the canvas expandable
         master.grid_rowconfigure(0, weight=1)
         master.grid_columnconfigure(0, weight=1)
-
         # create frame inside canvas
         self.frame = Frame(self.canvas)
         self.frame.bind("<Configure>", self.reset_scrollregion)
         self.frame.config(bg=self.fillcolor)
-
         self.canvas.bind('<Enter>', self._bound_to_mousewheel)
         self.canvas.bind('<Leave>', self.leave_unbind)
-
         self.canvas.bind_all("<MouseWheel>", self.default_mousewheel)
-
         self.frame.columnconfigure(0, weight=1)
     def update(self):
         self.mywindow = self.canvas.create_window(0, 0, anchor=NW, window=self.frame)
@@ -73,7 +65,6 @@ class vertScrollFrame(Frame):
     def OnFrameConfigure(self, event):
         self.canvas.configure(scrollregion=self.canvas.bbox("all"))
         
-
     def default_mousewheel(self, event):
         if self.vscrollbar.winfo_ismapped():
             self._bound_to_mousewheel('<Enter>')
@@ -91,7 +82,6 @@ class vertScrollFrame(Frame):
         self.canvas.unbind_all("<MouseWheel>")
         self.canvas.bind_all("<MouseWheel>", self.default_mousewheel)
         
-
     def _on_mousewheel(self, event):
         if self.vscrollbar.winfo_ismapped():
             self.canvas.yview_scroll(int(-1*(event.delta/120)), "units")

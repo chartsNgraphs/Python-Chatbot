@@ -1,10 +1,7 @@
 intent_name,articulation
-mishandled,Sorry I didn't understand your question. please try asking again.
-greeting,Nice to meet you!
-no_articulation,Sorry I have not been trainined to help with that yet.
-new_project,You can start a new project from the Start Page or from the app navigator.
-save,Do you want to save your project now?
-welcome,Ask you question below.
-close,Are you sure you want to close the program?
-get_data,"In the data tab of the ribbon, you will find available data source connectors you can use to query spreadsheet, databases, and many other sources."
-settings,"You can access the application settings in the app navigator on the left of the application, marked ""Options & Settings""."
+default,Sorry I didn't understand your question. please try asking again.
+greeting,Hey there! Nice to meet you!
+no_articulation,Sorry I can't help with that yet.
+who_made,"My developer gave me life, and for that I am grateful!"
+feeling,I'm not in the business of having feelings right now. But if you can use your own knowledge base and articulation sets to give me a personality!
+how_made,"My code is written in python, and I take advantage of the strengths of the language to get you answers."

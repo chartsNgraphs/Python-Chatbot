@@ -20,7 +20,7 @@ class Conversation():
             if articulation == None:
                 articulation = self.articMapper.get('no_articulation')
         else:
-            articulation = self.articMapper.get('mishandled')
+            articulation = self.articMapper.get('default')
         Interaction = namedtuple('Interaction', ['utterance', 'response'])
         self.interactions.append(Interaction(utterance, articulation))
         if returnPayload == False:
@@ -40,13 +40,3 @@ class Conversation():
     def getConvoLength(self):
         '''returns the conversation length'''
         return len(self.interactions)
-    
-def main():
-    engine = ConversationalEngine(app=None)
-    convo = Conversation(app=None, engine=engine)
-    while 1: 
-        entry=input()
-        print(convo.interact(entry))
-
-if __name__=="__main__":
-    main()

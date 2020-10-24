@@ -6,35 +6,25 @@ greeting,good morning
 greeting,hey there
 greeting,good afternoon
 greeting,hey you 
-new_project,start
-new_project,new project
-new_project,how to start
-new_project,start over
-new_project,new workflow 
-new_project,new 
-save,save now 
-save,how to save 
-save,save
-save,keep my work
-save,project saved
-save,did it save
-close,quit
-close,quit
-close,quit the program
-close,how do I close the app
-get_data,get some data
-get_data,connect to a data source
-get_data,pull in source
-get_data,database
-get_data,connect to my data
-get_data,fetch data
-get_data,fetch information 
-get_data,how do I fetch data
-welcome,###0001
-welcome,###0001
-settings,open settings
-settings,settings
-settings,options
-settings,settings and options
-settings,change a setting
-settings,I want to change a setting
+who_made,who made you?
+who_made,how were you made
+who_made,who wrote your code
+who_made,coded by who 
+who_made,developed by 
+who_made,how were you developed
+who_made,who programmed you 
+who_made,who are your developers
+feeling,how are you feeling?
+feeling,are you happy? 
+feeling,how are you doing? 
+feeling,are you doing well?
+feeling,do you have feelings
+feeling,do you feel sad
+feeling,happy or sad
+feeling,how's it going today?
+how_made,how are you made
+how_made,what language are you programmed in 
+how_made,how do you work 
+how_made,what are you coded with
+how_made,how do you know things
+how_made,how do you work underneath

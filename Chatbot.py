@@ -75,12 +75,3 @@ class Chatbot(Frame):
         self.scrollframe.update()
         self.scrollframe.canvas.yview_moveto('1.0')
 
-def main():
-    root = Tk()
-    bot = Chatbot(root, app=None, trainingdata='training.csv', articulationdata='articulations.csv')
-    bot.pack()
-    root.rowconfigure(1, weight=1)
-    root.mainloop()
-
-if __name__=="__main__":
-    main()
