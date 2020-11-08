@@ -17,6 +17,7 @@ from nltk.stem import WordNetLemmatizer
 class ConversationalEngine():
     def __init__(self, app, lemmatize_data=True, filepath=None):
         df = pd.read_csv(filepath)
+        df.sort_values(by='intent_name')
         self.labels = []
         for i in df['intent_name']:
             if i not in self.labels:

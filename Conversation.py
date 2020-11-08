@@ -37,6 +37,6 @@ class Conversation():
         '''returns all the interactions for the conversation as a list'''
         return self.interactions
     
-    def getConvoLength(self):
+    def getConversationLength(self):
         '''returns the conversation length'''
         return len(self.interactions)
