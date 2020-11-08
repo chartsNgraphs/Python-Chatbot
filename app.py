@@ -7,6 +7,5 @@ def main():
     bot.pack()
     root.rowconfigure(1, weight=1)
     root.mainloop()
-
 if __name__=="__main__":
     main()

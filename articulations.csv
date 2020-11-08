@@ -2,6 +2,7 @@ intent_name,articulation
 default,Sorry I didn't understand your question. please try asking again.
 greeting,Hey there! Nice to meet you!
 no_articulation,Sorry I can't help with that yet.
-who_made,"My developer gave me life, and for that I am grateful!"
+who_made,"My developer gave me life, and for that I am grateful! They did, however, ask me not to tell people too much about them."
 feeling,I'm not in the business of having feelings right now. But if you can use your own knowledge base and articulation sets to give me a personality!
 how_made,"My code is written in python, and I take advantage of the strengths of the language to get you answers."
+what_known,"I know what I'm taught, and I say what I'm told. "

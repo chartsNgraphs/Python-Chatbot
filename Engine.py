@@ -28,7 +28,7 @@ class ConversationalEngine():
             tag_map['V'] = wn.VERB
             tag_map['R'] = wn.ADV
             lemmatizer = WordNetLemmatizer()
-            df['sample_utterance'] = df['sample_utterance'].apply(self._lemmatize, tagMap=tag_map, ignoreStopWords=False, lemmatizer=lemmatizer)
+            df['sample_utterance'] = df['sample_utterance'].apply(self._lemmatize, tagMap=tag_map, ignoreStopWords=True, lemmatizer=lemmatizer)
         df['sample_utterance'] = [word_tokenize(entry) for entry in df['sample_utterance']]
         # vectorize the data
         Tfidf_vectored = TfidfVectorizer(max_features=5000)
