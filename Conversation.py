@@ -2,7 +2,13 @@ from Engine import ConversationalEngine
 from ArticulationMapper import ArticulationMapper
 from collections import namedtuple
 class Conversation():
-    def __init__(self, app, engine: ConversationalEngine, trainingdata: str, articulationdata: str):
+    def __init__(self, app, engine: ConversationalEngine, articulationdata: str):
+        '''
+        arguments: 
+        app -- any object type, for reference by the conversation
+        engine -- ConversationalEngine | an instantiated conversational engine
+        articulationdata -- str | filepath to the articulation .csv file
+        '''
         super().__init__()
         self.app=app
         self.engine = engine
@@ -12,6 +18,19 @@ class Conversation():
         self.articMapper = ArticulationMapper(articulationdata)
     
     def interact(self, utterance: str, returnPayload = False):
+        '''
+        arguments:
+        utterance -- str | the input utterance from the user 
+        returnPayload -- bool | True if desired return value is conversation payload, False if desired return value is just articulation string. Default is False.
+
+        returns: 
+            str articulation value if returnPayload arg is False, otherwise: 
+            dictionary with key-value pairs of: 
+            articulation -- str  | the articulation for the matched intent
+            intent -- str | the matched intent
+            probability -- float | the probability associated with the matched intent
+            probability_matrix -- list | a 2-dimensional list with elements of [intent name, probability] for all intents in the training set, sorted by highest to lowest probability
+        '''
         self.utterances.append(utterance)
         response = self.engine.getIntent(utterance)
         self.responses.append(response.get('intent'))
@@ -40,3 +59,4 @@ class Conversation():
     def getConversationLength(self):
         '''returns the conversation length'''
         return len(self.interactions)
+
