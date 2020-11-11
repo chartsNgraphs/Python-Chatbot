@@ -29,7 +29,7 @@ class Chatbot(Frame):
         self.entry.grid(row=3, column=1, padx=2, pady=2)
         self.btnSend = IconButton(self, image=None, fillcolor=Midnight.white, hovercolor=Midnight.staticLighter(Midnight.navy, percent=0.9), imagedata=self.sendimagedata)
         self.btnSend.grid(row=3, column=2)
-        self.engine = ConversationalEngine(app=self.app, lemmatize_data=True, filepath=trainingdata)
+        self.engine = ConversationalEngine(app=self.app, lemmatize_data=True, filepath=self.trainingdata, modelpath=None)
         self.countBubbles = 1
         self.btnSend.bind('<Button-1>', self.sendEvent)
         self.start()
@@ -46,7 +46,7 @@ class Chatbot(Frame):
         self.entry.focus_set()
     
     def start(self):
-        self.currentConversation = Conversation(self.app, self.engine, trainingdata=self.trainingdata, articulationdata=self.articulationdata)
+        self.currentConversation = Conversation(self.app, self.engine, articulationdata=self.articulationdata)
         self.respond(None, force=True)
     
     def send(self, utterance):
